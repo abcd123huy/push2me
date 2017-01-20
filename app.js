@@ -6,13 +6,12 @@ var path = require("path");
 var uuid = require("uuid");
 const fs = require('fs');
 const app = express()
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.json());
 const bot = new Telegraf(process.env.PUSH2ME_BOT_TOKEN)
 
 bot.telegram.setWebhook('https://push2mebot.herokuapp.com/secret-path')
 app.use(bot.webhookCallback('/secret-path'))
-
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -36,9 +35,9 @@ var upload = multer({ storage: storage, fileFilter: function (req, file, cb) {
     cb(null,false)
   } })
 
-app.get('/',(req,res) => {
-	res.send("Well Done")
-})
+ app.get('/',(req,res) => {
+ 	res.send("Application is working fine")
+ })
 
 app.get('/:telegramId/:message', (req, res) => {
   var telegramId = req.params.telegramId 
@@ -128,7 +127,7 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(process.env.PORT || 5000, () => {
-  console.log('App listening on port 5000!')
+    console.log('App listening on port 5000!')
 })
 
 
