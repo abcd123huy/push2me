@@ -36,7 +36,9 @@ var upload = multer({ storage: storage, fileFilter: function (req, file, cb) {
     cb(null,false)
   } })
 
-
+app.get('/',(req,res) => {
+	res.send("Well Done")
+})
 
 app.get('/:telegramId/:message', (req, res) => {
   var telegramId = req.params.telegramId 
