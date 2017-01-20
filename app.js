@@ -93,9 +93,9 @@ bot.command('start',(ctx) => {
 
 	ctx.reply("Hello! Welcome to Push2Me 😁 To start using this bot as your push notification it's easy 😉 \n\nThis will be your personal url https://push2mebot.herokuapp.com/" + telegram_id)
 
-	// ctx.reply("Here are some examples to get you started off. \n\nIf you want to send yourself some text message, it's easy just send it to your url in this manner https://push2mebot.herokuapp.com/"+telegram_id+encodeURI("/wow this is how you get a message") 
-	// 	+ "\n\nRemember to always URI encode your messages"
-	// 	+ "\n\nPlease visit this website for more information")
+	ctx.reply("Here are some examples to get you started off. \n\nIf you want to send yourself some text message, it's easy just send it to your url in this manner https://push2mebot.herokuapp.com/"+telegram_id+encodeURI("/wow this is how you get a message") 
+	 	+ "\n\nRemember to always URI encode your messages"
+		+ "\n\nPlease visit this website for more information")
 
 	
  
@@ -127,8 +127,8 @@ app.use(function(err, req, res, next) {
     }
 });
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log('App listening on port 3000!')
+app.listen(process.env.PORT || 5000, () => {
+  console.log('App listening on port 5000!')
 })
 
 
