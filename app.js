@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 const bot = new Telegraf(process.env.PUSH2ME_BOT_TOKEN)
 
 bot.telegram.setWebhook('https://push2mebot.herokuapp.com/secret-path')
-app.use(app.webhookCallback('/secret-path'))
+app.use(bot.webhookCallback('/secret-path'))
 
 
 var storage = multer.diskStorage({
