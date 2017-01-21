@@ -9,7 +9,7 @@ const app = express()
 //app.use(bodyParser.urlencoded({ extended: false }));
 //app.use(bodyParser.json());
 const bot = new Telegraf(process.env.PUSH2ME_BOT_TOKEN)
-
+app.use(express.static('public'))
 bot.telegram.setWebhook('https://push2mebot.herokuapp.com/secret-path')
 app.use(bot.webhookCallback('/secret-path'))
 
@@ -93,8 +93,9 @@ bot.command('start',(ctx) => {
 	ctx.reply("Hello! Welcome to Push2Me 😁 To start using this bot as your push notification it's easy 😉 \n\nThis will be your personal url https://push2mebot.herokuapp.com/" + telegram_id)
 
 	ctx.reply("Here are some examples to get you started off. \n\nIf you want to send yourself some text message, it's easy just send it to your url in this manner https://push2mebot.herokuapp.com/"+telegram_id+encodeURI("/wow this is how you get a message") 
-	 	+ "\n\nRemember to always URI encode your messages"
-		+ "\n\nPlease visit this website for more information")
+	 	+ "\n\nRemember to always URI encode your messages")
+
+	ctx.replyWithPhoto({url: 'https://push2mebot.herokuapp.com/images/push2me_phone.png'})
 
 	
  
